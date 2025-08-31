@@ -65,7 +65,7 @@ A modern, responsive web application for discovering and exploring GitHub issues
    
    Add your GitHub API token (optional):
    ```env
-   VITE_GITHUB_API_KEY=your_github_token_here
+     GITHUB_TOKEN=your_github_token_here
    ```
 
 4. **Start the development server**
