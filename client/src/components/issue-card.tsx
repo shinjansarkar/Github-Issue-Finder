@@ -104,9 +104,10 @@ export default function IssueCard({ issue }: IssueCardProps) {
   };
 
   return (
-    <Card className="hover:border-blue-500/60 transition-all duration-300 bg-gray-900 backdrop-blur-sm border-gray-800 shadow-lg hover:shadow-blue-500/20 hover:shadow-xl" data-testid={`card-issue-${issue.id}`}>
-      <CardContent className="p-4 sm:p-5 lg:p-6">
-        <div className="flex flex-col lg:flex-row items-start justify-between gap-3 sm:gap-4">
+    <Card className="hover:border-blue-500/60 transition-all duration-300 bg-gray-900 backdrop-blur-sm border-gray-800 shadow-lg hover:shadow-blue-500/20 hover:shadow-xl w-full sm:w-[900px] max-w-[900px] mx-auto overflow-hidden" data-testid={`card-issue-${issue.id}`}
+      style={{ wordBreak: 'break-word' }}>
+      <CardContent className="p-3 sm:p-4 lg:p-5">
+        <div className="flex flex-col lg:flex-row items-start justify-between gap-2 sm:gap-4">
           <div className="flex-1 w-full lg:w-auto">
             <div className="flex flex-wrap items-center gap-1 sm:gap-2 mb-2">
               {issue.difficulty && (
@@ -132,19 +133,16 @@ export default function IssueCard({ issue }: IssueCardProps) {
                 </Badge>
               )}
             </div>
-            
             <h3 
-              className="text-lg font-semibold text-foreground mb-2 hover:text-primary cursor-pointer"
+              className="text-lg font-semibold text-foreground mb-2 hover:text-primary cursor-pointer break-words"
               onClick={handleViewIssue}
               data-testid={`text-issue-title-${issue.id}`}
             >
               {issue.title}
             </h3>
-            
-            <p className="text-muted-foreground text-sm mb-3 line-clamp-2" data-testid={`text-issue-description-${issue.id}`}>
+            <p className="text-muted-foreground text-sm mb-3 break-words line-clamp-2" data-testid={`text-issue-description-${issue.id}`}> 
               {issue.body || "No description provided."}
             </p>
-            
             <div className="flex flex-wrap items-center gap-2 sm:gap-4 text-xs text-muted-foreground">
               <div className="flex items-center space-x-1">
                 <GitBranch className="h-3 w-3" />
@@ -153,7 +151,7 @@ export default function IssueCard({ issue }: IssueCardProps) {
               {issue.language && (
                 <div className="flex items-center space-x-1">
                   <div className={cn("w-3 h-3 rounded-full", getLanguageColorClass(issue.language))} />
-                  <span data-testid={`text-language-${issue.id}`}>
+                  <span data-testid={`text-language-${issue.id}`}> 
                     {issue.language.charAt(0).toUpperCase() + issue.language.slice(1)}
                   </span>
                 </div>
@@ -165,15 +163,14 @@ export default function IssueCard({ issue }: IssueCardProps) {
               <span data-testid={`text-updated-${issue.id}`}>{formatTimeAgo(issue.updatedAt)}</span>
             </div>
           </div>
-          
-          <div className="flex items-center gap-2 w-full lg:w-auto lg:ml-4">
+          <div className="flex flex-row sm:flex-col items-stretch gap-2 w-full sm:w-auto lg:ml-4">
             <Button
               variant="ghost"
               size="icon"
               onClick={handleSaveIssue}
               disabled={saveIssueMutation.isPending}
               className={cn(
-                "p-2 transition-all duration-200 rounded-lg",
+                "p-2 transition-all duration-200 rounded-lg w-full sm:w-auto",
                 isSaved 
                   ? "bg-gradient-to-r from-yellow-500 to-orange-500 text-white hover:from-yellow-600 hover:to-orange-600" 
                   : "bg-gradient-to-r from-purple-500 to-pink-500 text-white hover:from-purple-600 hover:to-pink-600"
@@ -185,7 +182,7 @@ export default function IssueCard({ issue }: IssueCardProps) {
             </Button>
             <Button 
               onClick={handleViewIssue}
-              className="flex items-center space-x-2 bg-gradient-to-r from-green-500 to-blue-500 text-white hover:from-green-600 hover:to-blue-600 transition-all duration-200 flex-1 lg:flex-none"
+              className="flex items-center justify-center space-x-2 bg-gradient-to-r from-green-500 to-blue-500 text-white hover:from-green-600 hover:to-blue-600 transition-all duration-200 w-full sm:w-auto min-w-[120px]"
               data-testid={`button-view-${issue.id}`}
             >
               <span>View Issue</span>

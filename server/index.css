@@ -1,0 +1,29 @@
+/* Main content container */
+.main-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+/* Issue card */
+.issue-card {
+  background: #181f2a;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+  overflow: hidden;
+  word-break: break-word;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .main-content {
+    padding: 8px;
+    max-width: 100%;
+  }
+  .issue-card {
+    padding: 12px;
+    font-size: 0.95rem;
+  }
+}
