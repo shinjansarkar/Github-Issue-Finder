@@ -163,23 +163,7 @@ export default function IssueCard({ issue }: IssueCardProps) {
               <span data-testid={`text-updated-${issue.id}`}>{formatTimeAgo(issue.updatedAt)}</span>
             </div>
           </div>
-          <div className="flex flex-row sm:flex-col items-stretch gap-2 w-full sm:w-auto lg:ml-4">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={handleSaveIssue}
-              disabled={saveIssueMutation.isPending}
-              className={cn(
-                "p-2 transition-all duration-200 rounded-lg w-full sm:w-auto",
-                isSaved 
-                  ? "bg-gradient-to-r from-yellow-500 to-orange-500 text-white hover:from-yellow-600 hover:to-orange-600" 
-                  : "bg-gradient-to-r from-purple-500 to-pink-500 text-white hover:from-purple-600 hover:to-pink-600"
-              )}
-              title={isSaved ? "Unsave issue" : "Save issue"}
-              data-testid={`button-save-${issue.id}`}
-            >
-              <Bookmark className={cn("h-4 w-4", isSaved && "fill-current")} />
-            </Button>
+          <div className="flex flex-col items-center justify-center gap-2 w-full sm:w-auto lg:ml-4">
             <Button 
               onClick={handleViewIssue}
               className="flex items-center justify-center space-x-2 bg-gradient-to-r from-green-500 to-blue-500 text-white hover:from-green-600 hover:to-blue-600 transition-all duration-200 w-full sm:w-auto min-w-[120px]"

@@ -40,8 +40,8 @@ export default function SearchHeader({ query, onQueryChange }: SearchHeaderProps
           </div>
         </div>
         
-        <div className="flex-1 max-w-md mx-4 sm:mx-8">
-          <form onSubmit={handleSearch} className="relative">
+        <div className="flex-1 max-w-md mx-4 sm:mx-8 flex items-center gap-4">
+          <form onSubmit={handleSearch} className="relative flex-1">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-purple-400 h-4 w-4" />
             <Input
               type="text"
@@ -52,26 +52,10 @@ export default function SearchHeader({ query, onQueryChange }: SearchHeaderProps
               data-testid="input-search"
             />
           </form>
+          {/* Removed Saved Issues button */}
         </div>
         
-        <div className="hidden sm:flex items-center space-x-4">
-          <Button 
-            variant="ghost" 
-            size="icon"
-            className="text-purple-400 hover:text-purple-300 hover:bg-purple-800/50"
-            data-testid="button-notifications"
-          >
-            <Bell className="h-5 w-5" />
-          </Button>
-          <Button 
-            variant="ghost" 
-            size="icon"
-            className="text-purple-400 hover:text-purple-300 hover:bg-purple-800/50"
-            data-testid="button-profile"
-          >
-            <User className="h-5 w-5" />
-          </Button>
-        </div>
+  {/* Removed notification and profile icons */}
       </div>
     </header>
   );
